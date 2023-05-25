@@ -1,0 +1,41 @@
+import React from 'react';
+
+const ViewBudget = (props) => {
+	return (
+		<>
+			<span> Budget: £
+			<input 
+            type='number' 
+            style={{ marginInlineStart: '4rem' , size: 5}}
+            value={props.budget}
+            onChange={(event) => props.budget(event.target.value)}
+            onClick={props.handleEditClick}
+           >
+			</input>
+
+            </span>
+
+
+		</>
+	);
+};
+
+export default ViewBudget;
+
+
+/*//Original
+import React from 'react';
+
+const ViewBudget = (props) => {
+	return (
+		<>
+			<span>Budget: £{props.budget}</span>
+			<button type='button' class='btn btn-primary' onClick={props.handleEditClick}>
+				Edit
+			</button>
+		</>
+	);
+};
+
+export default ViewBudget;
+*/
