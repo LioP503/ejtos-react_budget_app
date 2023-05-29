@@ -16,17 +16,21 @@ export default Budget;
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 const Budget = () => {
-    const { budget } = useContext(AppContext);
+    const { expenses, budget, Currency } = useContext(AppContext);
     const [cost, setCost] = useState('');
 
+    const totalExpenses = expenses.reduce((total, item) => {
+        return (total = total + item.cost);
+    }, 0);
 
-    if(cost > 20000) {
-        alert("The budget can not be more than 20,000");
+    if(cost > 350 ) {
+        //alert("The budget can not be more than 20,000");
+        alert("You cannot reduce the budget value lower than the spending");
         setCost("");
         return;
     }
     return (
-        <span> Budget: £
+        <span> Budget:{Currency}
         <input 
                         required='required'
                          type='number'
